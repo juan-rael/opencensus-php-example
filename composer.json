@@ -1,0 +1,17 @@
+{
+    "name": "opencensus/php",
+    "description": "Example PHP Application with OpenCensus",
+    "type": "project",
+    "require": {
+    	"silex/silex": "^2.3",
+        "opencensus/opencensus": "dev-master",
+        "google/cloud-trace": "^0.3"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Jeff Ching",
+            "email": "chingor@google.com"
+        }
+    ]
+}
