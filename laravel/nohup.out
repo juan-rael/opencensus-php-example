@@ -1,0 +1,142 @@
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 18:27:45 2018] 172.17.0.1:42266 [200]: /favicon.ico
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use OpenCensus\Trace\Exporter\StackdriverExporter;
+use OpenCensus\Trace\Tracer;
+use OpenCensus\Trace\Integrations\Laravel;
+use OpenCensus\Trace\Integrations\Mysql;
+use OpenCensus\Trace\Integrations\PDO;
+
+class OpenCensusProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        if (php_sapi_name() == 'cli') {
+            return;
+        }
+
+        // Enable OpenCensus extension integrations
+        Laravel::load();
+        Mysql::load();
+        PDO::load();
+
+        // Start the request tracing for this request
+        $exporter = new StackdriverExporter();
+        Tracer::start($exporter);
+
+        // Create a span that starts from when Laravel first boots (public/index.php)
+        Tracer::inSpan(['name' => 'bootstrap', 'startTime' => LARAVEL_START], function () {});
+    }
+}
+In ProviderRepository.php line 208:
+                                                      
+  Class 'App\Providers\OpenCensusProvider' not found  
+                                                      
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use OpenCensus\Trace\Exporter\StackdriverExporter;
+use OpenCensus\Trace\Tracer;
+use OpenCensus\Trace\Integrations\Laravel;
+use OpenCensus\Trace\Integrations\Mysql;
+use OpenCensus\Trace\Integrations\PDO;
+
+class OpenCensusProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        if (php_sapi_name() == 'cli') {
+            return;
+        }
+
+        // Enable OpenCensus extension integrations
+        Laravel::load();
+        Mysql::load();
+        PDO::load();
+
+        // Start the request tracing for this request
+        $exporter = new StackdriverExporter();
+        Tracer::start($exporter);
+
+        // Create a span that starts from when Laravel first boots (public/index.php)
+        Tracer::inSpan(['name' => 'bootstrap', 'startTime' => LARAVEL_START], function () {});
+    }
+}
+In ProviderRepository.php line 208:
+                                                      
+  Class 'App\Providers\OpenCensusProvider' not found  
+                                                      
+
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 18:43:20 2018] 172.17.0.1:42608 [200]: /favicon.ico
+[Tue Oct 23 18:47:30 2018] 172.17.0.1:42610 [200]: /favicon.ico
+[Tue Oct 23 18:47:35 2018] 172.17.0.1:42612 [200]: /phpinfo.php
+[Tue Oct 23 18:47:35 2018] 172.17.0.1:42614 [200]: /favicon.ico
+Laravel development server started: <http://0.0.0.0:8181>
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 18:52:37 2018] 172.17.0.1:42626 [200]: /favicon.ico
+[Tue Oct 23 18:52:38 2018] 172.17.0.1:42630 [200]: /favicon.ico
+[Tue Oct 23 18:52:55 2018] 172.17.0.1:42632 [200]: /favicon.ico
+[Tue Oct 23 18:53:00 2018] 172.17.0.1:42634 [200]: /phpinfo.php
+[Tue Oct 23 18:53:00 2018] 172.17.0.1:42636 [200]: /favicon.ico
+[Tue Oct 23 18:54:32 2018] 172.17.0.1:42640 [200]: /favicon.ico
+[Tue Oct 23 18:54:33 2018] 172.17.0.1:42642 [200]: /phpinfo.php
+[Tue Oct 23 18:54:33 2018] 172.17.0.1:42644 [200]: /favicon.ico
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42646 [200]: /phpinfo.php
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42648 [200]: /favicon.ico
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42650 [200]: /phpinfo.php
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42652 [200]: /favicon.ico
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42654 [200]: /phpinfo.php
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42656 [200]: /phpinfo.php
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42658 [200]: /favicon.ico
+[Tue Oct 23 18:54:34 2018] 172.17.0.1:42660 [200]: /favicon.ico
+Terminated
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 18:57:22 2018] 172.17.0.1:42684 [200]: /favicon.ico
+[Tue Oct 23 19:07:21 2018] 172.17.0.1:42688 [200]: /favicon.ico
+[Tue Oct 23 19:07:40 2018] 172.17.0.1:42692 [200]: /favicon.ico
+[Tue Oct 23 19:08:19 2018] 172.17.0.1:42696 [200]: /favicon.ico
+[Tue Oct 23 19:08:20 2018] 172.17.0.1:42700 [200]: /favicon.ico
+[Tue Oct 23 19:08:32 2018] 172.17.0.1:42704 [200]: /favicon.ico
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 19:24:12 2018] 172.17.0.1:42708 [200]: /favicon.ico
+[Tue Oct 23 19:24:27 2018] 172.17.0.1:42712 [200]: /favicon.ico
+[Tue Oct 23 19:26:50 2018] 172.17.0.1:42716 [200]: /favicon.ico
+[Tue Oct 23 19:26:53 2018] 172.17.0.1:42720 [200]: /favicon.ico
+[Tue Oct 23 19:27:03 2018] 172.17.0.1:42724 [200]: /favicon.ico
+Laravel development server started: <http://127.0.0.1:8181>
+Laravel development server started: <http://127.0.0.1:8181>
+Terminated
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 19:38:31 2018] 172.17.0.1:42744 [200]: /favicon.ico
+[Tue Oct 23 19:38:35 2018] 172.17.0.1:42748 [200]: /favicon.ico
+[Tue Oct 23 20:04:57 2018] 172.17.0.1:42756 [200]: /favicon.ico
+Terminated
+Laravel development server started: <http://0.0.0.0:8181>
+Laravel development server started: <http://0.0.0.0:8181>
+[Tue Oct 23 20:06:18 2018] 172.17.0.1:42774 [200]: /favicon.ico
+[Tue Oct 23 20:06:21 2018] 172.17.0.1:42778 [200]: /favicon.ico
+[Tue Oct 23 20:06:23 2018] 172.17.0.1:42782 [200]: /favicon.ico
+[Tue Oct 23 20:06:52 2018] 172.17.0.1:42786 [200]: /favicon.ico
+[Tue Oct 23 20:06:58 2018] 172.17.0.1:42790 [200]: /favicon.ico
+[Tue Oct 23 20:17:40 2018] 172.17.0.1:42798 [200]: /favicon.ico
+[Tue Oct 23 20:18:07 2018] 172.17.0.1:42802 [200]: /favicon.ico
+[Tue Oct 23 20:53:09 2018] 172.17.0.1:42806 [200]: /favicon.ico
+[Tue Oct 23 20:56:54 2018] 172.17.0.1:42810 [200]: /favicon.ico
+[Tue Oct 23 20:57:25 2018] 172.17.0.1:42814 [200]: /favicon.ico
+[Tue Oct 23 20:58:24 2018] 172.17.0.1:42818 [200]: /favicon.ico
+[Tue Oct 23 21:01:34 2018] 172.17.0.1:42822 [200]: /favicon.ico
+[Tue Oct 23 21:05:30 2018] 172.17.0.1:42826 [200]: /favicon.ico
+[Tue Oct 23 21:10:36 2018] 172.17.0.1:42830 [200]: /favicon.ico
+[Tue Oct 23 21:11:28 2018] 172.17.0.1:42834 [200]: /favicon.ico
+[Tue Oct 23 21:11:34 2018] 172.17.0.1:42836 [200]: /favicon.ico
+[Tue Oct 23 21:11:55 2018] 172.17.0.1:42840 [200]: /favicon.ico
+[Tue Oct 23 21:19:49 2018] 172.17.0.1:42844 [200]: /favicon.ico
+[Tue Oct 23 21:19:59 2018] 172.17.0.1:42848 [200]: /favicon.ico
+[Tue Oct 23 21:20:22 2018] 172.17.0.1:42852 [200]: /favicon.ico
+[Tue Oct 23 21:20:50 2018] 172.17.0.1:42856 [200]: /favicon.ico
+[Tue Oct 23 21:21:49 2018] 172.17.0.1:42860 [200]: /favicon.ico
+[Tue Oct 23 21:22:23 2018] 172.17.0.1:42864 [200]: /favicon.ico

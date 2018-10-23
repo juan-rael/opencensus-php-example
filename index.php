@@ -38,7 +38,9 @@ function fibonacci($n,$first = 0,$second = 1)
 
 $exporter = new FileExporter( 'logs/file' . ( new DateTime() )->format('dmYGisu') . '.json' );
 
-$rt = Tracer::start( $exporter );
+$rt = Tracer::start( $exporter, [
+    'skipReporting' => true
+] );
 
 $tracer = $rt->tracer( );
 
@@ -62,6 +64,7 @@ $span = Tracer::startSpan( [ 'name' => 'fibonacci-operation' ] );
 
 // Opens a scope that attaches the span to the current context
 $scope = Tracer::withSpan( $span );
+
 try {
     $fibonacci = fibonacci( 50 );
 } finally {
