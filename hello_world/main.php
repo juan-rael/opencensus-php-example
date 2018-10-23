@@ -9,11 +9,6 @@ use OpenCensus\Trace\Sampler\AlwaysSampleSampler;
 use OpenCensus\Trace\Span;
 use OpenCensus\Trace\Tracer\ContextTracer;
 
-function function_to_trace()
-{
-    sleep(1);
-}
-
 function main()
 {
 
