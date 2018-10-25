@@ -4,13 +4,16 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Google\Cloud\Bigtable\V2\BigtableClient;
 use OpenCensus\Trace\Integrations\Grpc;
+use OpenCensus\Trace\Integrations\Curl;
 use Google\Cloud\Trace\TraceClient;
 use OpenCensus\Trace\Tracer;
 use OpenCensus\Trace\Exporter\FileExporter;
+use Google\ApiCore\ApiException;
 
 $exporter = new FileExporter( 'logs/grpc_bigtable_' . ( new DateTime() )->format('dmYGisu') . '.json' );
 Tracer::start($exporter);
 Grpc::load();
+Curl::load();
 
 $bigtableClient = new BigtableClient();
 
@@ -36,6 +39,8 @@ try {
             }
         }
     },[$stream]);
+} catch(ApiException $e){
+    print_r( $e );
 } finally {
     $bigtableClient->close();
 }
