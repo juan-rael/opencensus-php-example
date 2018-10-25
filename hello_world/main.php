@@ -11,7 +11,6 @@ use OpenCensus\Trace\Tracer\ContextTracer;
 
 function main()
 {
-
     $sampler = new AlwaysSampleSampler();
     $file_exporter = 'logs/file' . (new DateTime())->format('dmYGisu') . '.json';
     $exporter = new FileExporter($file_exporter);
@@ -27,13 +26,13 @@ function main()
             'example key' => 'example value'
         ]
     ], function() {
-        return sleep(1);
+        sleep(1);
     });
 
     Tracer::inSpan([
         'name' => 'child'
     ], function() {
-        return sleep(1);
+        sleep(1);
     });
 
     $tracer = $rt->tracer();

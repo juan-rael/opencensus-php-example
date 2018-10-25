@@ -1,0 +1,193 @@
+[
+	{
+		"traceId": "b5fd76cee6374997a463a8b7dc30c458",
+		"name": "main",
+		"spanId": "6cfe8672",
+		"parentSpanId": "",
+		"stackTrace": [],
+		"startTime": {
+			"date": "2018-10-25 15:26:03.674856",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"endTime": {
+			"date": "2018-10-25 15:26:08.773230",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"status": null,
+		"attributes": [],
+		"timeEvents": [],
+		"links": [],
+		"sameProcessAsParentSpan": false
+	},
+	{
+		"traceId": "b5fd76cee6374997a463a8b7dc30c458",
+		"name": "BigTableFormattedName",
+		"spanId": "17310697",
+		"parentSpanId": "6cfe8672",
+		"stackTrace": [],
+		"startTime": {
+			"date": "2018-10-25 15:26:03.929752",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"endTime": {
+			"date": "2018-10-25 15:26:03.940230",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"status": null,
+		"attributes": [],
+		"timeEvents": [],
+		"links": [],
+		"sameProcessAsParentSpan": true
+	},
+	{
+		"traceId": "b5fd76cee6374997a463a8b7dc30c458",
+		"name": "BigTableStream",
+		"spanId": "130c1eee",
+		"parentSpanId": "6cfe8672",
+		"stackTrace": [],
+		"startTime": {
+			"date": "2018-10-25 15:26:03.940311",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"endTime": {
+			"date": "2018-10-25 15:26:08.132362",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"status": null,
+		"attributes": [],
+		"timeEvents": [],
+		"links": [],
+		"sameProcessAsParentSpan": true
+	},
+	{
+		"traceId": "b5fd76cee6374997a463a8b7dc30c458",
+		"name": "grpc\/serverStreamRequest",
+		"spanId": "8c917bd",
+		"parentSpanId": "130c1eee",
+		"stackTrace": [{
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/Transport\/GrpcTransport.php",
+			"line": 180,
+			"function": "_serverStreamRequest",
+			"class": "Grpc\\BaseStub",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/GapicClientTrait.php",
+			"line": 477,
+			"function": "startServerStreamingCall",
+			"class": "Google\\ApiCore\\Transport\\GrpcTransport",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/Middleware\/CredentialsWrapperMiddleware.php",
+			"line": 61,
+			"function": "Google\\ApiCore\\{closure}",
+			"class": "Google\\Cloud\\Bigtable\\V2\\Gapic\\BigtableGapicClient",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/Middleware\/FixedHeaderMiddleware.php",
+			"line": 67,
+			"function": "__invoke",
+			"class": "Google\\ApiCore\\Middleware\\CredentialsWrapperMiddleware",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/Middleware\/RetryMiddleware.php",
+			"line": 87,
+			"function": "__invoke",
+			"class": "Google\\ApiCore\\Middleware\\FixedHeaderMiddleware",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/Middleware\/OptionsFilterMiddleware.php",
+			"line": 64,
+			"function": "__invoke",
+			"class": "Google\\ApiCore\\Middleware\\RetryMiddleware",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/gax\/src\/ApiCore\/GapicClientTrait.php",
+			"line": 460,
+			"function": "__invoke",
+			"class": "Google\\ApiCore\\Middleware\\OptionsFilterMiddleware",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/google\/cloud\/Bigtable\/src\/V2\/Gapic\/BigtableGapicClient.php",
+			"line": 357,
+			"function": "startCall",
+			"class": "Google\\Cloud\\Bigtable\\V2\\Gapic\\BigtableGapicClient",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/grpc_index.php",
+			"line": 26,
+			"function": "readRows",
+			"class": "Google\\Cloud\\Bigtable\\V2\\Gapic\\BigtableGapicClient",
+			"type": "->"
+		}, {
+			"function": "{closure}"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/opencensus\/opencensus\/src\/Trace\/Tracer\/ExtensionTracer.php",
+			"line": 74,
+			"function": "call_user_func_array"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/opencensus\/opencensus\/src\/Trace\/RequestHandler.php",
+			"line": 167,
+			"function": "inSpan",
+			"class": "OpenCensus\\Trace\\Tracer\\ExtensionTracer",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/vendor\/opencensus\/opencensus\/src\/Trace\/Tracer.php",
+			"line": 167,
+			"function": "inSpan",
+			"class": "OpenCensus\\Trace\\RequestHandler",
+			"type": "->"
+		}, {
+			"file": "\/var\/www\/openCensusExample\/grpc_index.php",
+			"line": 27,
+			"function": "inSpan",
+			"class": "OpenCensus\\Trace\\Tracer",
+			"type": "::"
+		}],
+		"startTime": {
+			"date": "2018-10-25 15:26:04.061303",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"endTime": {
+			"date": "2018-10-25 15:26:08.132256",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"status": null,
+		"attributes": {
+			"host": "bigtable.googleapis.com:443",
+			"uri": "\/google.bigtable.v2.Bigtable\/ReadRows"
+		},
+		"timeEvents": [],
+		"links": [],
+		"sameProcessAsParentSpan": true
+	},
+	{
+		"traceId": "b5fd76cee6374997a463a8b7dc30c458",
+		"name": "BigTableStreamForeach",
+		"spanId": "3cd16226",
+		"parentSpanId": "6cfe8672",
+		"stackTrace": [],
+		"startTime": {
+			"date": "2018-10-25 15:26:08.132770",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"endTime": {
+			"date": "2018-10-25 15:26:08.772995",
+			"timezone_type": 1,
+			"timezone": "+00:00"
+		},
+		"status": null,
+		"attributes": [],
+		"timeEvents": [],
+		"links": [],
+		"sameProcessAsParentSpan": true
+	}
+]

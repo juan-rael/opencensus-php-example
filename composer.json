@@ -3,9 +3,11 @@
     "description": "Example PHP Application with OpenCensus",
     "type": "project",
     "require": {
-    	"silex/silex": "^2.3",
         "opencensus/opencensus": "dev-master",
-        "google/cloud-trace": "^0.3"
+        "google/cloud-trace": "^0.3",
+        "grpc/grpc": "^1.15",
+        "google/gax": "^0.37.0",
+        "google/cloud": "^0.83.0"
     },
     "license": "Apache-2.0",
     "authors": [
