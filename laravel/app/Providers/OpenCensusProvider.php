@@ -7,6 +7,9 @@ use OpenCensus\Trace\Tracer;
 use OpenCensus\Trace\Integrations\Laravel;
 use OpenCensus\Trace\Integrations\Mysql;
 use OpenCensus\Trace\Integrations\PDO;
+use OpenCensus\Trace\Integrations\Grpc;
+use OpenCensus\Trace\Integrations\Curl;
+
 use DateTime;
 class OpenCensusProvider extends ServiceProvider
 {
@@ -20,6 +23,8 @@ class OpenCensusProvider extends ServiceProvider
         Laravel::load();
         Mysql::load();
         PDO::load();
+        Grpc::load();
+        Curl::load();
 
         // Start the request tracing for this request
         $exporter = new FileExporter( storage_path().'/opencensus/file' . ( new DateTime() )->format('dmYGisu') . '.json' );

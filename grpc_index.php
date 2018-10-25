@@ -9,6 +9,10 @@ use Google\Cloud\Trace\TraceClient;
 use OpenCensus\Trace\Tracer;
 use OpenCensus\Trace\Exporter\FileExporter;
 use Google\ApiCore\ApiException;
+use OpenCensus\Version;
+
+
+echo Version::VERSION."\n";
 
 $exporter = new FileExporter( 'logs/grpc_bigtable_' . ( new DateTime() )->format('dmYGisu') . '.json' );
 Tracer::start($exporter);
