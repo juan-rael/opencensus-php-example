@@ -14,7 +14,7 @@ use OpenCensus\Trace\Exporter\StackdriverExporter;
 
 
 echo Version::VERSION."\n";
-/*
+
 $traceClient = new TraceClient([
     'projectId' => getenv('PROJECT_ID'),
 ]);
@@ -23,19 +23,16 @@ $tracerClient = [
 ];
 
 $exporter = new StackdriverExporter( $tracerClient );
-$trace = $traceClient->trace();
-*/
-$exporter = new FileExporter( 'logs/grpc_bigtable_' . ( new DateTime() )->format('dmYGisu') . '.json' );
+$trace = $traceClient->trace('GrpcSample');
+
 Tracer::start($exporter);
 Grpc::load();
-Curl::load();
 
 $bigtableClient = new BigtableClient();
 
 $instance_id = 'quickstart-instance-php';
 $table_id = 'bigtable-php-table';
 try {
-
     $formattedTableName = $bigtableClient->tableName(getenv('PROJECT_ID'), $instance_id, $table_id);
     // Read all responses until the stream is complete
     $stream = $bigtableClient->readRows($formattedTableName);
@@ -46,11 +43,10 @@ try {
             echo $cellChunk->getRowKey() . ' [ ' . $cellChunk->getValue() . ' ] ( ' . $cellChunk->getTimestampMicros() . ')'."\n";
         }
     }
-
 } catch(ApiException $e){
     echo $e->getMessage()."\n";
 } finally {
     $bigtableClient->close();
-    //$result = $traceClient->insert( $trace );
+    $result = $traceClient->insert( $trace );
 }
 ?>
