@@ -1,0 +1,103 @@
+[{
+	"traceId": "ec376b83fbfc4972ada3f84bcdfc9401",
+	"name": "main",
+	"spanId": "700ca661",
+	"parentSpanId": "",
+	"stackTrace": [{
+		"file": "\/var\/www\/openCensusExample\/hello_world\/main.php",
+		"line": 49,
+		"function": "main"
+	}],
+	"startTime": {
+		"date": "2018-10-26 14:47:46.450324",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"endTime": {
+		"date": "1970-01-01 00:00:00.000000",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"status": null,
+	"attributes": [],
+	"timeEvents": [],
+	"links": [],
+	"sameProcessAsParentSpan": false
+}, {
+	"traceId": "ec376b83fbfc4972ada3f84bcdfc9401",
+	"name": "root",
+	"spanId": "3296256f",
+	"parentSpanId": "700ca661",
+	"stackTrace": [{
+		"file": "\/var\/www\/openCensusExample\/hello_world\/main.php",
+		"line": 49,
+		"function": "main"
+	}],
+	"startTime": {
+		"date": "2018-10-26 14:47:46.604102",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"endTime": {
+		"date": "2018-10-26 14:47:47.605015",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"status": null,
+	"attributes": {
+		"example key": "example value"
+	},
+	"timeEvents": [],
+	"links": [],
+	"sameProcessAsParentSpan": true
+}, {
+	"traceId": "ec376b83fbfc4972ada3f84bcdfc9401",
+	"name": "child",
+	"spanId": "337281ef",
+	"parentSpanId": "700ca661",
+	"stackTrace": [{
+		"file": "\/var\/www\/openCensusExample\/hello_world\/main.php",
+		"line": 49,
+		"function": "main"
+	}],
+	"startTime": {
+		"date": "2018-10-26 14:47:47.605398",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"endTime": {
+		"date": "2018-10-26 14:47:48.606181",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"status": null,
+	"attributes": [],
+	"timeEvents": [],
+	"links": [],
+	"sameProcessAsParentSpan": true
+}, {
+	"traceId": "ec376b83fbfc4972ada3f84bcdfc9401",
+	"name": "app\/OpenCensus\\Trace\\Tracer\\ExtensionTracer\/generateSpanName\/89",
+	"spanId": "7adc319",
+	"parentSpanId": "700ca661",
+	"stackTrace": [{
+		"file": "\/var\/www\/openCensusExample\/hello_world\/main.php",
+		"line": 49,
+		"function": "main"
+	}],
+	"startTime": {
+		"date": "2018-10-26 14:47:48.606629",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"endTime": {
+		"date": "2018-10-26 14:47:48.610237",
+		"timezone_type": 1,
+		"timezone": "+00:00"
+	},
+	"status": null,
+	"attributes": [],
+	"timeEvents": [],
+	"links": [],
+	"sameProcessAsParentSpan": true
+}]
